@@ -3,8 +3,6 @@ import User from "./user";
 
 
 const Index = ({users}) => {
-    // const listUsers = users.map(user =><p key={user.id}>{user.name}</p>)
-    console.log(users);
   return (
     <div>
         {users.map(user => <Link href={`users/${user.id}`} key={user.id}><User  user={user} /></Link> )}
