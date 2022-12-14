@@ -3,9 +3,10 @@ import User from "./user";
 
 
 const Index = ({users}) => {
+
   return (
     <div>
-        {users.map(user => <Link href={`users/${user.id}`} key={user.id}><User  user={user} /></Link> )}
+      {users.map(user => <Link href={`users/${user.id}`} key={user.id}><User  user={user} /></Link> )}
     </div>
   )
 }
@@ -14,12 +15,13 @@ const Index = ({users}) => {
 export default Index
 
 export async function getStaticProps(){
-    const getUsers = await fetch('http://localhost:3001/api/users');
-    const users = await getUsers.json();
 
-    return {
-          props: {
-            users
-          }
-        }
+  const getUsers = await fetch('http://localhost:3001/api/users');
+  const users = await getUsers.json();
+
+  return {
+    props: {
+      users,
+    }
+  }
 }
